@@ -42,7 +42,7 @@ Here's a walkthrough of implemented required features:
 
 GIF created with LICEcap
 
-![Alt text](/web103_unit3_project-main/client/src/assets/projectGIF.gif)
+![Alt text](client/src/assets/projectGIF.gif)
 ## Notes
 
 Describe any challenges encountered while building the app or any additional context you'd like to add.
