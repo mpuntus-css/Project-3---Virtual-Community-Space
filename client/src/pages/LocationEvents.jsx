@@ -1,11 +1,35 @@
 import React, { useState, useEffect } from 'react'
 import Event from '../components/Event'
 import '../css/LocationEvents.css'
+import LocationsAPI from '../services/LocationsAPI'
+import EventsAPI from '../services/EventsAPI'
+
 
 const LocationEvents = ({index}) => {
-    const [location, setLocation] = useState([])
+    const [location, setLocation] = useState(null)
     const [events, setEvents] = useState([])
 
+
+    useEffect(() => {
+        ;(async () => {
+          try {
+            // Fetch location by index (assuming index corresponds to database ID)
+            const locationData = await LocationsAPI.getLocationById(index)
+            setLocation(locationData)
+    
+            // Fetch events for that location
+            const allEvents = await EventsAPI.getAllEvents()
+            const locationEvents = allEvents.filter(e => e.location_id === index)
+            setEvents(locationEvents)
+          } catch (error) {
+            console.error(error)
+          }
+        })()
+      }, [index])
+    
+      if (!location) return <p>Loading location...</p>
+
+      
     return (
         <div className='location-events'>
             <header>

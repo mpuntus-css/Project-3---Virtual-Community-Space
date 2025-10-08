@@ -41,7 +41,7 @@ const App = () => {
 
         <div className='header-buttons'>
           <Link to='/' role='button'>Home</Link>
-          <Link to='/events' role='button'>Events</Link>
+          {/* <Link to='/events' role='button'>Events</Link> */}
         </div>
       </header>
 
